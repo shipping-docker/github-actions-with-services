@@ -49,7 +49,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           sed -i 's/DB_PORT.*/DB_PORT=33060/g' .env
-          sed -i 's/DB_USERNAME.*/DB_USERNAME=laravel/g' .env
+          sed -i 's/DB_USERNAME.*/DB_USERNAME=root/g' .env
           sed -i 's/DB_PASSWORD.*/DB_PASSWORD=password/g' .env
           cat .env
           php artisan migrate
