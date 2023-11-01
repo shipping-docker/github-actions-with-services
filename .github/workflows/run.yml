@@ -39,8 +39,7 @@ jobs:
         with:
           php-version: '8.2'
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: Create a sample Laravel project
         run: composer create-project laravel/laravel test-project
 
       # Runs a set of commands using the runners shell
@@ -49,6 +48,8 @@ jobs:
           sed -i 's/DB_USERNAME.*/DB_USERNAME=laravel/g' .env
           sed -i 's/DB_PASSWORD.*/DB_PASSWORD=password/g' .env
           php artisan migrate
+        working-directory: ./test-project
 
       - name: tests
         run: phpunit
+        working-directory: ./test-project
