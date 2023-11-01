@@ -56,5 +56,5 @@ jobs:
         working-directory: ./test-project
 
       - name: tests
-        run: phpunit
+        run: ./vendor/bin/phpunit
         working-directory: ./test-project
