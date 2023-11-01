@@ -29,7 +29,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_PASSWORD: password
         ports:
-          - 33060:3306
+          - 3306:3306
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -48,7 +48,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          sed -i 's/DB_PORT.*/DB_PORT=33060/g' .env
+          sed -i 's/DB_PORT.*/DB_PORT=3306/g' .env
           sed -i 's/DB_USERNAME.*/DB_USERNAME=root/g' .env
           sed -i 's/DB_PASSWORD.*/DB_PASSWORD=password/g' .env
           cat .env
